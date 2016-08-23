@@ -1,0 +1,39 @@
+<meta charset="ISO-8859-1">
+
+	<div class="container">
+		<h2>Liste des compagnies Aeriennes</h2>
+		<table class="table table-striped">
+			<tr>
+				<th>Id</th>
+				<th>Nom</th>
+				<th colspan="2"></th>
+			</tr>
+
+
+			<tr ng-repeat="compagnieAerienne in compagnieAerienneCtrl.compagnieAeriennes">
+				<td>{{compagnieAerienne.id}}</td>
+				<td>{{compagnieAerienne.nom}}</td>
+				<td><a class="btn btn-info btn-xs" ng-click="compagnieAerienneCtrl.edit(id)">Editer</a></td>
+				<td><a class="btn btn-info btn-xs" ng-click="compagnieAerienneCtrl.remove(id)">Supprimer</a></td>
+			</tr>
+
+			<tr>
+				<td colspan="2"><a class="btn btn-info" ng-click="compagnieAerienneCtrl.add()">Ajouter une compagnie Aerienne</a></td>
+			</tr>
+		</table>
+		
+		<fieldset ng-show="compagnieAerienneCtrl.compagnieAerienne">
+			<legend>Edition de la compagnie Aerienne</legend>
+			<form method="post" ng-submit="compagnieAerienneCtrl.save()">
+				<div class="form-group">
+					<label for="id">Id</label>
+					<input type="number" id="id" ng-model="compagnieAerienneCtrl.compagnieAerienne.id"></input>
+				</div>
+				<div class="form-group">
+					<label for="nom">Nom</label>
+					<input type="text" id="nom" ng-model="compagnieAerienneCtrl.compagnieAerienne.nom"/>
+				</div>
+				<input type="submit" value="Valider" class="btn btn-default"  />
+			</form>
+		</fieldset>
+	</div>

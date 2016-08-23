@@ -11,6 +11,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.Version;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
+
 @Entity
 
 public class CompagnieAerienne {
@@ -49,6 +52,7 @@ public class CompagnieAerienne {
 		this.nom = nom;
 	}
 	
+	@JsonIgnore
 	@OneToMany(mappedBy="compagnieAerienne")
 	public List<CompagnieAerienneVol> getCompagnieAerienneVol() {
 		return compagnieAerienneVol;
