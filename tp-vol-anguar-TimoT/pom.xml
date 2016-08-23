@@ -16,8 +16,8 @@
 			<version>4.3.2.RELEASE</version>
 		</dependency>
 		<dependency>
-			<groupId>sopra.banque</groupId>
-			<artifactId>banque-jpa-spring-angular</artifactId>
+			<groupId>sopra.formation</groupId>
+			<artifactId>tp-vol-data-TimoT</artifactId>
 			<version>1.0-SNAPSHOT</version>
 		</dependency>
 		<dependency>
