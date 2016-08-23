@@ -50,7 +50,7 @@ public class AeroportRestController {
 		} else {
 			aeroportDao.create(aeroport);
 			HttpHeaders headers = new HttpHeaders();
-			headers.setLocation(ucBuilder.path("/aeroport/{id}").buildAndExpand(aeroport.getIdAer()).toUri());
+			headers.setLocation(ucBuilder.path("/aeroport/{idAer}").buildAndExpand(aeroport.getIdAer()).toUri());
 			return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
 		}
 	}
