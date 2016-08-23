@@ -61,8 +61,8 @@ public class AeroportRestController {
 		if (currentAeroport == null) {
 			return new ResponseEntity<Aeroport>(HttpStatus.NOT_FOUND);
 		} else {
-			currentAeroport.setIdAer(currentAeroport.getIdAer());
-			currentAeroport.setNom(currentAeroport.getNom());
+//			currentAeroport.setIdAer(currentAeroport.getIdAer());
+			currentAeroport.setNom(aeroport.getNom());
 			currentAeroport = aeroportDao.update(currentAeroport);
 			currentAeroport = aeroportDao.find (currentAeroport.getIdAer());
 			return new ResponseEntity<Aeroport>(currentAeroport, HttpStatus.OK);
