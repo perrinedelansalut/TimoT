@@ -12,6 +12,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.Version;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Aeroport {
 
@@ -29,6 +31,7 @@ public class Aeroport {
 	}
 
 	@OneToMany(mappedBy = "id.aeroport")
+	@JsonIgnore
 	public List<Escale> getEscales() {
 		return Escales;
 	}
@@ -80,6 +83,7 @@ public class Aeroport {
 	// }
 
 	@OneToMany(mappedBy = "aeroportArrivee")
+	@JsonIgnore
 	public List<Vol> getVolArrivee() {
 		return VolArrivee;
 	}
@@ -98,6 +102,7 @@ public class Aeroport {
 	}
 
 	@OneToMany(mappedBy = "aeroportDepart")
+	@JsonIgnore
 	public List<Vol> getVolDepart() {
 		return VolDepart;
 	}
@@ -107,6 +112,7 @@ public class Aeroport {
 	}
 
 	@OneToMany(mappedBy = "aeroport")
+	@JsonIgnore
 	public List<AeroportVille> getAeroportVille() {
 		return AeroportVille;
 	}
