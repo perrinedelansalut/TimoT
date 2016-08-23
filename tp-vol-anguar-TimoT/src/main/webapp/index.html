@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="banque">
+<html ng-app="agence">
 <section ng-controller="PanelController as panel">
 	<head>
 <meta charset="ISO-8859-1">
@@ -16,6 +16,11 @@
 	</head>
 	<body>
 
+
+		<div class="col-md-1">
+			<img src="images/Logo-Elephant.png" height="150" width="150" />
+		</div>
+		<div class="col-md-10">
 			<ul class="nav nav-pills">
 				<li ng-class="{active:panelCtrl.isSet('vol')}"><a href
 					ng-click="panelCtrl.setTab('vol', 'Gestion des vols')"> <span
@@ -23,13 +28,14 @@
 				</a></li>
 
 				<li ng-class="{active:panelCtrl.isSet('compagnieAerienne')}"><a
-					href ng-click="panelCtrl.setTab('compagnieAerienne', 'Gestion des compagnies aeriennes')"> <span
-						class="glyphicon glyphicon-globe"></span> Compagnie Aerienne
+					href
+					ng-click="panelCtrl.setTab('compagnieAerienne', 'Gestion des compagnies aeriennes')">
+						<span class="glyphicon glyphicon-globe"></span> Compagnie Aerienne
 				</a></li>
 
 				<li ng-class="{active:panelCtrl.isSet('aeroport')}"><a href
-					ng-click="panelCtrl.setTab('aeroport', 'Gestion des aeroports')"> <span
-						class="glyphicon glyphicon-road"></span> Aeroport
+					ng-click="panelCtrl.setTab('aeroport', 'Gestion des aeroports')">
+						<span class="glyphicon glyphicon-road"></span> Aeroport
 				</a></li>
 
 				<li ng-class="{active:panelCtrl.isSet('ville')}"><a href
@@ -39,18 +45,29 @@
 			</ul>
 
 
-			<div class="row">
-				<div class="col-md-1">
-					<img src="images/Logo-Elephant.png" height="150" width="150" />
-				</div>
-				<div class="col-md-8">
-					<vol ng-show="panelCtrl.isSet('vol')"></vol>
-					<compagnie-aerienne ng-show="panelCtrl.isSet('compagnieAerienne')"></compagnie-aerienne>
-					<aeroport ng-show="panelCtrl.isSet('aeroport')"></aeroport>
-					<ville ng-show="panelCtrl.isSet('ville')"></ville>
-				</div>
+		</div>
 
+
+		<vol ng-show="panelCtrl.isSet('vol')"></vol>
+		<compagnie-aerienne ng-show="panelCtrl.isSet('compagnieAerienne')"></compagnie-aerienne>
+		<aeroport ng-show="panelCtrl.isSet('aeroport')"></aeroport>
+		<ville ng-show="panelCtrl.isSet('ville')"></ville>
+
+
+		<!-- 
+		<div class="row">
+			<div class="col-md-1">
+				<img src="images/Logo-Elephant.png" height="150" width="150" />
 			</div>
+			<div class="col-md-8">
+				<vol ng-show="panelCtrl.isSet('vol')"></vol>
+				<compagnie-aerienne ng-show="panelCtrl.isSet('compagnieAerienne')"></compagnie-aerienne>
+				<aeroport ng-show="panelCtrl.isSet('aeroport')"></aeroport>
+				<ville ng-show="panelCtrl.isSet('ville')"></ville>
+			</div>
+
+		</div>
+		 -->
 
 
 
