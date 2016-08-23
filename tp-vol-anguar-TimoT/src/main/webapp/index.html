@@ -1,36 +1,59 @@
 <!DOCTYPE html>
 <html ng-app="banque">
 <section ng-controller="PanelController as panel">
-<head>
+	<head>
 <meta charset="ISO-8859-1">
 <title>{{panel.titre}}</title>
 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"></link>
+<link rel="stylesheet" type="text/css"
+	href="css/bootstrap-theme.min.css"></link>
 <script type="text/javascript" src="js/angular.min.js"></script>
 <script type="text/javascript" src="js/app.js"></script>
-<script type="text/javascript" src="js/controllers/client.js"></script>
-<script type="text/javascript" src="js/controllers/agence.js"></script>
-</head>
-<body>
+<script type="text/javascript" src="js/controllers/vol.js"></script>
+<script type="text/javascript" src="js/controllers/compagnieAerienne.js"></script>
+<script type="text/javascript" src="js/controllers/aeroport.js"></script>
+<script type="text/javascript" src="js/controllers/ville.js"></script>
+	</head>
+	<body>
 
-	
-		<ul class="nav nav-pills">
-			<li ng-class="{active:panel.isSet('client')}"><a href ng-click="panel.setTab('client', 'Gestion des clients')">Client</a></li>
-			<li ng-class="{active:panel.isSet('agence')}"><a href ng-click="panel.setTab('agence', 'Gestion des agences')">Agence</a></li>
-		</ul>
-		
-		<client ng-show="panel.isSet('client')">	
-		</client>
-		
-		<agence ng-show="panel.isSet('agence')">
-		</agence>
+			<ul class="nav nav-pills">
+				<li ng-class="{active:panelCtrl.isSet('vol')}"><a href
+					ng-click="panelCtrl.setTab('vol', 'Gestion des vols')"> <span
+						class="glyphicon glyphicon-plane"></span> Vol
+				</a></li>
 
-<!-- 		<div ng-include="'client.html'" class="container" ng-controller="ClientController as clientCtrl" ng-show="panel.isSet('client')">	 -->
-<!-- 		</div> -->
-		
-<!-- 		<div ng-include="'agence.html'" class="container" ng-controller="AgenceController as agenceCtrl" ng-show="panel.isSet('agence')"> -->
-<!-- 		</div> -->
-	
+				<li ng-class="{active:panelCtrl.isSet('compagnieAerienne')}"><a
+					href ng-click="panelCtrl.setTab('compagnieAerienne', 'Gestion des compagnies aeriennes')"> <span
+						class="glyphicon glyphicon-globe"></span> Compagnie Aerienne
+				</a></li>
 
-</body>
+				<li ng-class="{active:panelCtrl.isSet('aeroport')}"><a href
+					ng-click="panelCtrl.setTab('aeroport', 'Gestion des aeroports')"> <span
+						class="glyphicon glyphicon-road"></span> Aeroport
+				</a></li>
+
+				<li ng-class="{active:panelCtrl.isSet('ville')}"><a href
+					ng-click="panelCtrl.setTab('ville', 'Gestion des villes')"> <span
+						class="glyphicon glyphicon-home"></span> Ville
+				</a></li>
+			</ul>
+
+
+			<div class="row">
+				<div class="col-md-1">
+					<img src="images/Logo-Elephant.png" height="150" width="150" />
+				</div>
+				<div class="col-md-8">
+					<vol ng-show="panelCtrl.isSet('vol')"></vol>
+					<compagnie-aerienne ng-show="panelCtrl.isSet('compagnieAerienne')"></compagnie-aerienne>
+					<aeroport ng-show="panelCtrl.isSet('aeroport')"></aeroport>
+					<ville ng-show="panelCtrl.isSet('ville')"></ville>
+				</div>
+
+			</div>
+
+
+
+	</body>
 </section>
 </html>
