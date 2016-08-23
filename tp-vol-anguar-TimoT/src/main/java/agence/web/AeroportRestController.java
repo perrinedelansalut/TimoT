@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import vol.model.Aeroport;
-import vol.model.Client;
 import vol.model.dao.AeroportDao;
 
 
@@ -34,58 +33,52 @@ public class AeroportRestController {
 		}
 	}
 	
-	@RequestMapping(value = "/aeroport/{id}", method = RequestMethod.GET)
-	public ResponseEntity<Client> get(@PathVariable("id") Long id) {
-		Client client = clientDao.find(id);
-		if (client == null) {
-			return new ResponseEntity<Client>(HttpStatus.NOT_FOUND);
-		} else {
-			return new ResponseEntity<Client>(client, HttpStatus.OK);
-		}
-	}
-
-	@RequestMapping(value = "/client/", method = RequestMethod.POST)
-	public ResponseEntity<Void> create(@RequestBody Client client, UriComponentsBuilder ucBuilder) {
-		if (client.getId() != null && clientDao.find(client.getId()) != null) {
-			return new ResponseEntity<Void>(HttpStatus.CONFLICT);
-		} else {
-			clientDao.create(client);
-			HttpHeaders headers = new HttpHeaders();
-			headers.setLocation(ucBuilder.path("/client/{id}").buildAndExpand(client.getId()).toUri());
-			return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
-		}
-	}
-
-	@RequestMapping(value = "/client/{id}", method = RequestMethod.PUT)
-	public ResponseEntity<Client> update(@PathVariable("id") Long id, @RequestBody Client client) {
-		Client currentClient = clientDao.find(id);
-		if (currentClient == null) {
-			return new ResponseEntity<Client>(HttpStatus.NOT_FOUND);
-		} else {
-			currentClient.setCivilite(client.getCivilite());
-			currentClient.setNom(client.getNom());
-			currentClient.setPrenom(client.getPrenom());
-			currentClient.setDtNaissance(client.getDtNaissance());
-			currentClient.setEmail(client.getEmail());
-			currentClient.setTelephone(client.getTelephone());
-			currentClient.setProfessionnel(client.getProfessionnel());
-			currentClient.setAdresse(client.getAdresse());
-			currentClient = clientDao.update(currentClient);
-			currentClient = clientDao.find (currentClient.getId());
-			return new ResponseEntity<Client>(currentClient, HttpStatus.OK);
-		}
-	}
-
-	@RequestMapping(value = "/client/{id}", method = RequestMethod.DELETE)
-	public ResponseEntity<Client> delete(@PathVariable("id") Long id) {
-		Client client = clientDao.find(id);
-		if (client == null) {
-			return new ResponseEntity<Client>(HttpStatus.NOT_FOUND);
-		}
-		clientDao.delete(client);
-		return new ResponseEntity<Client>(HttpStatus.NO_CONTENT);
-	}
-	
+//	@RequestMapping(value = "/aeroport/{id}", method = RequestMethod.GET)
+//	public ResponseEntity<Aeroport> get(@PathVariable("idAer") Integer idAer) {
+//		Aeroport aeroport = aeroportDao.find(idAer);
+//		if (aeroport == null) {
+//			return new ResponseEntity<Aeroport>(HttpStatus.NOT_FOUND);
+//		} else {
+//			return new ResponseEntity<Aeroport>(aeroport, HttpStatus.OK);
+//		}
+//	}
+//
+//	@RequestMapping(value = "/aeroport/", method = RequestMethod.POST)
+//	public ResponseEntity<Void> create(@RequestBody Aeroport aeroport, UriComponentsBuilder ucBuilder) {
+//		if (aeroport.getIdAer() != null && aeroportDao.find(aeroport.getIdAer()) != null) {
+//			return new ResponseEntity<Void>(HttpStatus.CONFLICT);
+//		} else {
+//			aeroportDao.create(aeroport);
+//			HttpHeaders headers = new HttpHeaders();
+//			headers.setLocation(ucBuilder.path("/aeroport/{id}").buildAndExpand(aeroport.getIdAer()).toUri());
+//			return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
+//		}
+//	}
+//
+//	@RequestMapping(value = "/aeroport/{id}", method = RequestMethod.PUT)
+//	public ResponseEntity<Aeroport> update(@PathVariable("idAer") Integer idAer, @RequestBody Aeroport aeroport) {
+//		Aeroport currentAeroport = aeroportDao.find(idAer);
+//		if (currentAeroport == null) {
+//			return new ResponseEntity<Aeroport>(HttpStatus.NOT_FOUND);
+//		} else {
+//			currentAeroport.setIdAer(currentAeroport.getIdAer());
+//			currentAeroport.setNom(currentAeroport.getNom());
+//			currentAeroport = aeroportDao.update(currentAeroport);
+//			currentAeroport = aeroportDao.find (currentAeroport.getIdAer());
+//			return new ResponseEntity<Aeroport>(currentAeroport, HttpStatus.OK);
+//		}
+//	}
+//
+//	@RequestMapping(value = "/aeroport/{id}", method = RequestMethod.DELETE)
+//	public ResponseEntity<Aeroport> delete(@PathVariable("idAer") Integer idAer) {
+//		Aeroport aeroport = aeroportDao.find(idAer);
+//		if (aeroport == null) {
+//			return new ResponseEntity<Aeroport>(HttpStatus.NOT_FOUND);
+//		}
+//		aeroportDao.delete(aeroport);
+//		return new ResponseEntity<Aeroport>(HttpStatus.NO_CONTENT);
+//	}
+//	
 	
 	
 }
