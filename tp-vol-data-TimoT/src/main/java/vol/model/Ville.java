@@ -11,6 +11,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Version;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Ville {
 	
@@ -55,6 +57,7 @@ public class Ville {
 		this.nom = nom;
 	}
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "ville")
 	public List<AeroportVille> getAeroportVille() {
 		return AeroportVille;
