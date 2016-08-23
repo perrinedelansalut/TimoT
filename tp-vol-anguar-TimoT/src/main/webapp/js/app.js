@@ -1,6 +1,6 @@
 //closure auto-exécutée
 (function() {
-	var app = angular.module("banque",["client", "agence"]);
+	var app = angular.module("agence",["vol", "compagnieAerienne", "aeroport", "ville" ]);
 	
 	app.controller("PanelController", function() {
 		var self=this;
@@ -19,20 +19,6 @@
 	});
 	
 	
-//	app.directive('client', function() {
-//		return {
-//			restrict: 'E',
-//			templateUrl: 'client.html'
-//		}
-//	});
-	
-	
-//	app.directive('agence', function() {
-//		return {
-//			restrict: 'E',
-//			templateUrl: 'agence.html'
-//		}
-//	});
 	
 	
 })();
