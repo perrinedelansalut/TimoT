@@ -99,7 +99,7 @@
 				}; 
 				
 				
-				self.edit = function(id) {
+				self.edit = function(idVil) {
 					$http({
 						method : 'GET',
 						url : 'services/ville/' + idVil

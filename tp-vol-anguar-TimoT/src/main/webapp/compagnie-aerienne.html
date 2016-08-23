@@ -13,12 +13,12 @@
 			<tr ng-repeat="compagnieAerienne in compagnieAerienneCtrl.compagnieAeriennes">
 				<td>{{compagnieAerienne.id}}</td>
 				<td>{{compagnieAerienne.nom}}</td>
-				<td><a class="btn btn-info btn-xs" ng-click="compagnieAerienneCtrl.edit(id)">Editer</a></td>
-				<td><a class="btn btn-info btn-xs" ng-click="compagnieAerienneCtrl.remove(id)">Supprimer</a></td>
+				<td><a class="btn btn-info btn-xs" ng-click="compagnieAerienneCtrl.edit(compagnieAerienne.id)">Editer</a></td>
+				<td><a class="btn btn-info btn-xs" ng-click="compagnieAerienneCtrl.remove(compagnieAerienne.id)">Supprimer</a></td>
 			</tr>
 
 			<tr>
-				<td colspan="2"><a class="btn btn-info" ng-click="compagnieAerienneCtrl.add()">Ajouter une compagnie Aerienne</a></td>
+				<td colspan="4"><a class="btn btn-info" ng-click="compagnieAerienneCtrl.add()">Ajouter une compagnie Aerienne</a></td>
 			</tr>
 		</table>
 		
@@ -27,7 +27,7 @@
 			<form method="post" ng-submit="compagnieAerienneCtrl.save()">
 				<div class="form-group">
 					<label for="id">Id</label>
-					<input type="number" id="id" ng-model="compagnieAerienneCtrl.compagnieAerienne.id"></input>
+					<inputHidden type="number" id="id" ng-model="compagnieAerienneCtrl.compagnieAerienne.id"></input>
 				</div>
 				<div class="form-group">
 					<label for="nom">Nom</label>
