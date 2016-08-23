@@ -28,11 +28,10 @@
 				
 				self.add = function() {
 					self.compagnieAerienne={};
-					self.mode="add";
 				}; 
 				
 				self.save = function() {
-					if(self.mode=="edit") {
+					if(self.compagnieAerienne.id) {
 						$http({
 							method : 'PUT',
 							url : 'services/compagnieAerienne/' + self.compagnieAerienne.id,
@@ -55,7 +54,6 @@
 			
 						});
 					}
-					self.mode=null;
 				}; 
 				
 				
@@ -65,7 +63,6 @@
 						url : 'services/compagnieAerienne/' + id
 					}).then(function successCallback(response) {
 						self.compagnieAerienne = response.data;
-						self.mode="edit";
 					}, function errorCallback(response) {
 
 					});
