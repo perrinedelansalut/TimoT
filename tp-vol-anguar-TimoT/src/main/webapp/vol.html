@@ -1,0 +1,59 @@
+<meta charset="ISO-8859-1">
+
+	<div class="container">
+		<h2>Liste des vols</h2>
+		<table class="table table-striped">
+			<tr>
+				<th>Id</th>
+				<th>Date de départ</th>
+				<th>Date d'arrivée</th>
+				<th>Heure de départ</th>
+				<th>Heure d'arrivée</th>
+				<th colspan="2"></th>
+			</tr>
+
+
+			<tr ng-repeat="vol in volCtrl.vols">
+				<td>{{vol.idVol}}</td>
+				<td>{{vol.dateDepart | date:'dd/MM/yyyy'}}</td>
+				<td>{{vol.dateArrivee | date:'dd/MM/yyyy'}}</td>
+				<td>{{vol.heureDepart | date:'HH:mm'}}</td>
+				<td>{{vol.heureArrivee | date:'HH:mm'}}</td>
+				<td><a class="btn btn-info btn-xs" ng-click="volCtrl.edit(vol.idVol)">Editer</a></td>
+				<td><a class="btn btn-info btn-xs" ng-click="volCtrl.remove(vol.idVol)">Supprimer</a></td>
+			</tr>
+
+			<tr>
+				<td colspan="7"><a class="btn btn-info" ng-click="volCtrl.add()">Ajouter un vol</a></td>
+			</tr>
+		</table>
+		
+		<fieldset ng-show="volCtrl.vol">
+			<legend>Edition du vol</legend>
+			<form method="post" ng-submit="volCtrl.save()">
+				<div class="form-group">
+					<input hidden="true" type="number" id="idVol" ng-model="volCtrl.vol.idVol"/>
+				</div>
+				<div class="form-group">
+					<input hidden="true" type="number" id="version" ng-model="volCtrl.vol.version"/>
+				</div>
+				<div class="form-group">
+					<label for="dateDepart">Date de départ</label>
+					<input type="date" id="dateDepart" ng-model="volCtrl.vol.dateDepart"/>
+				</div>
+				<div class="form-group">
+					<label for="dateArrivee">Date d'arrivée</label>
+					<input type="date" id="dateArrivee" ng-model="volCtrl.vol.dateArrivee"/>
+				</div>
+				<div class="form-group">
+					<label for="heureDepart">Heure de départ</label>
+					<input type="date" id="heureDepart" ng-model="volCtrl.vol.heureDepart"/>
+				</div>
+				<div class="form-group">
+					<label for="heureArrivee">Heure d'arrivée</label>
+					<input type="date" id="heureArrivee" ng-model="volCtrl.vol.heureArrivee"/>
+				</div>
+				<input type="submit" value="Valider" class="btn btn-default"  />
+			</form>
+		</fieldset>
+	</div>

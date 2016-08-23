@@ -16,7 +16,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 import banque.dao.ClientDao;
 import banque.model.Client;
 
-@RestController
+//@RestController
 public class xRestController {
 
 	@Autowired
