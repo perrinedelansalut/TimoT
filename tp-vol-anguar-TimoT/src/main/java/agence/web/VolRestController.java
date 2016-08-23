@@ -32,8 +32,8 @@ public class VolRestController {
 		}
 	}
 	
-	@RequestMapping(value = "/vol/{id}", method = RequestMethod.GET)
-	public ResponseEntity<Vol> get(@PathVariable("id") Integer idVol) {
+	@RequestMapping(value = "/vol/{idVol}", method = RequestMethod.GET)
+	public ResponseEntity<Vol> get(@PathVariable("idVol") Integer idVol) {
 		Vol vol = volDao.find(idVol);
 		if (vol == null) {
 			return new ResponseEntity<Vol>(HttpStatus.NOT_FOUND);
@@ -56,6 +56,7 @@ public class VolRestController {
 
 	@RequestMapping(value = "/vol/{idVol}", method = RequestMethod.PUT)
 	public ResponseEntity<Vol> update(@PathVariable("idVol") Integer idVol, @RequestBody Vol vol) {
+		System.out.println("vol="+vol.getHeureDepart());
 		Vol currentVol = volDao.find(idVol);
 		if (currentVol == null) {
 			return new ResponseEntity<Vol>(HttpStatus.NOT_FOUND);
