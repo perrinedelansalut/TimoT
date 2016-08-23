@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app="banque">
+<section ng-controller="PanelController as panel">
+<head>
+<meta charset="ISO-8859-1">
+<title>{{panel.titre}}</title>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"></link>
+<script type="text/javascript" src="js/angular.min.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
+<script type="text/javascript" src="js/controllers/ville.js"></script>
+</head>
+<body>
+
+	
+		<ul class="nav nav-pills">
+			<li ng-class="{active:panel.isSet('ville')}"><a href ng-click="panel.setTab('ville', 'Gestion des villes')">Ville</a></li>
+		</ul>
+		
+		<ville ng-show="panel.isSet('ville')">	
+		</ville>
+		
+
+<!-- 		<div ng-include="'client.html'" class="container" ng-controller="ClientController as clientCtrl" ng-show="panel.isSet('client')">	 -->
+<!-- 		</div> -->
+		
+<!-- 		<div ng-include="'agence.html'" class="container" ng-controller="AgenceController as agenceCtrl" ng-show="panel.isSet('agence')"> -->
+<!-- 		</div> -->
+	
+
+</body>
+</section>
+</html>
