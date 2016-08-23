@@ -1,6 +1,6 @@
 //closure auto-exécutée
 (function() {
-	var app = angular.module("agence",["vol", "compagnieAerienne", "aeroport", "vol" ]);
+	var app = angular.module("agence",["vol", "compagnieAerienne", "aeroport", "ville" ]);
 	
 	app.controller("PanelController", function() {
 		var self=this;
