@@ -6,11 +6,11 @@
 		var self=this;
 		self.tab=null;
 		
-		self.titre = 'Gestion';
+//		self.titre = 'Gestion';
 		
-		self.setTab = function(currentTab, titre) {
+		self.setTab = function(currentTab) {
 			self.tab = currentTab;
-			self.titre = titre;
+//			self.titre = titre;
 		};
 		
 		self.isSet = function(currentTab) {

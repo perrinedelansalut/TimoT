@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html ng-app="agence">
-<section ng-controller="PanelController as panel">
-	<head>
+
+<head>
 <meta charset="ISO-8859-1">
-<title>{{panel.titre}}</title>
+<title>Compagnie Aerienne</title>
 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"></link>
 <link rel="stylesheet" type="text/css"
 	href="css/bootstrap-theme.min.css"></link>
@@ -13,33 +13,34 @@
 <script type="text/javascript" src="js/controllers/compagnieAerienne.js"></script>
 <script type="text/javascript" src="js/controllers/aeroport.js"></script>
 <script type="text/javascript" src="js/controllers/ville.js"></script>
-	</head>
-	<body>
+</head>
+<body>
 
-
+	<section ng-controller="PanelController as panel">
+	
 		<div class="col-md-1">
 			<img src="images/Logo-Elephant.png" height="150" width="150" />
 		</div>
 		<div class="col-md-10">
 			<ul class="nav nav-pills">
 				<li ng-class="{active:panelCtrl.isSet('vol')}"><a href
-					ng-click="panelCtrl.setTab('vol', 'Gestion des vols')"> <span
+					ng-click="panelCtrl.setTab('vol')"> <span
 						class="glyphicon glyphicon-plane"></span> Vol
 				</a></li>
 
 				<li ng-class="{active:panelCtrl.isSet('compagnieAerienne')}"><a
 					href
-					ng-click="panelCtrl.setTab('compagnieAerienne', 'Gestion des compagnies aeriennes')">
+					ng-click="panelCtrl.setTab('compagnieAerienne')">
 						<span class="glyphicon glyphicon-globe"></span> Compagnie Aerienne
 				</a></li>
 
 				<li ng-class="{active:panelCtrl.isSet('aeroport')}"><a href
-					ng-click="panelCtrl.setTab('aeroport', 'Gestion des aeroports')">
+					ng-click="panelCtrl.setTab('aeroport')">
 						<span class="glyphicon glyphicon-road"></span> Aeroport
 				</a></li>
 
 				<li ng-class="{active:panelCtrl.isSet('ville')}"><a href
-					ng-click="panelCtrl.setTab('ville', 'Gestion des villes')"> <span
+					ng-click="panelCtrl.setTab('ville')"> <span
 						class="glyphicon glyphicon-home"></span> Ville
 				</a></li>
 			</ul>
@@ -68,9 +69,7 @@
 
 		</div>
 		 -->
+	</section>
+</body>
 
-
-
-	</body>
-</section>
 </html>
