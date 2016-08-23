@@ -1,0 +1,48 @@
+
+<meta charset="ISO-8859-1">
+
+
+	<div class="container">
+		<h2>Liste des aeroports</h2>
+		<table class="table table-striped">
+			<tr>
+				<th>Id</th>
+				<th>Nom</th>
+				<th colspan="2"></th>
+			</tr>
+
+
+			<tr ng-repeat="aeroport in aeroportCtrl.aeroports">
+				<td>{{client.id}}</td>
+				<td>{{client.nom}}</td>
+				<td><a class="btn btn-info btn-xs" ng-click="aeroportCtrl.edit(aeroport.idAer)">Editer</a></td>
+				<td><a class="btn btn-info btn-xs" ng-click="aeroportCtrl.remove(aeroport.idAer)">Supprimer</a></td>
+			</tr>
+
+			<tr>
+				<td colspan="13"><a class="btn btn-info" ng-click="aeroportCtrl.add()">Ajouter un client</a></td>
+			</tr>
+		</table>
+		
+		<fieldset ng-show="aeroportCtrl.aeroport">
+			<legend>Edition de l'aéroport</legend>
+			<form method="post" ng-submit="aeroportCtrl.save()">
+				<div class="form-group">
+					<input hidden="true" type="number" id="idAer" ng-model="aeroportCtrl.aeroport.idAer"/>
+				</div>
+				<div class="form-group">
+					<input hidden="true" type="number" id="version" ng-model="aeroportCtrl.aeroport.version"/>
+				</div>
+				
+				<div class="form-group">
+					<label for="nom">Nom</label>
+					<input type="text" id="nom" ng-model="aeroportCtrl.aeroport.nom"/>
+				</div>
+
+				<input type="submit" value="Valider" class="btn btn-default"  />
+			</form>
+		</fieldset>
+	</div>
+
+<!-- </body> -->
+<!-- </html> -->
