@@ -16,32 +16,27 @@
 	</head>
 	<body>
 
-
-		<section ng-controller="PanelController as panelCtrl">
-
 			<ul class="nav nav-pills">
 				<li ng-class="{active:panelCtrl.isSet('vol')}"><a href
-					ng-click="panelCtrl.setTab('vol')"> <span
+					ng-click="panelCtrl.setTab('vol', 'Gestion des vols')"> <span
 						class="glyphicon glyphicon-plane"></span> Vol
 				</a></li>
 
 				<li ng-class="{active:panelCtrl.isSet('compagnieAerienne')}"><a
-					href ng-click="panelCtrl.setTab('compagnieAerienne')"> <span
+					href ng-click="panelCtrl.setTab('compagnieAerienne', 'Gestion des compagnies aeriennes')"> <span
 						class="glyphicon glyphicon-globe"></span> Compagnie Aerienne
 				</a></li>
 
-				<li ng-class="{active:panelCtrl.isSet('aeroport')}"><a
-					href ng-click="panelCtrl.setTab('aeroport')"> <span
+				<li ng-class="{active:panelCtrl.isSet('aeroport')}"><a href
+					ng-click="panelCtrl.setTab('aeroport', 'Gestion des aeroports')"> <span
 						class="glyphicon glyphicon-road"></span> Aeroport
 				</a></li>
 
-				<li ng-class="{active:panelCtrl.isSet('ville')}"><a
-					href ng-click="panelCtrl.setTab('ville')"> <span
+				<li ng-class="{active:panelCtrl.isSet('ville')}"><a href
+					ng-click="panelCtrl.setTab('ville', 'Gestion des villes')"> <span
 						class="glyphicon glyphicon-home"></span> Ville
 				</a></li>
 			</ul>
-
-
 
 
 			<div class="row">
@@ -57,13 +52,6 @@
 
 			</div>
 
-
-
-
-
-
-
-		</section>
 
 
 	</body>
