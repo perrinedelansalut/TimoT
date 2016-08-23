@@ -33,7 +33,7 @@ public class AeroportRestController {
 		}
 	}
 	
-	@RequestMapping(value = "/aeroport/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/aeroport/{idAer}", method = RequestMethod.GET)
 	public ResponseEntity<Aeroport> get(@PathVariable("idAer") Integer idAer) {
 		Aeroport aeroport = aeroportDao.find(idAer);
 		if (aeroport == null) {
@@ -55,7 +55,7 @@ public class AeroportRestController {
 		}
 	}
 
-	@RequestMapping(value = "/aeroport/{id}", method = RequestMethod.PUT)
+	@RequestMapping(value = "/aeroport/{idAer}", method = RequestMethod.PUT)
 	public ResponseEntity<Aeroport> update(@PathVariable("idAer") Integer idAer, @RequestBody Aeroport aeroport) {
 		Aeroport currentAeroport = aeroportDao.find(idAer);
 		if (currentAeroport == null) {
@@ -69,7 +69,7 @@ public class AeroportRestController {
 		}
 	}
 
-	@RequestMapping(value = "/aeroport/{id}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/aeroport/{idAer}", method = RequestMethod.DELETE)
 	public ResponseEntity<Aeroport> delete(@PathVariable("idAer") Integer idAer) {
 		Aeroport aeroport = aeroportDao.find(idAer);
 		if (aeroport == null) {
