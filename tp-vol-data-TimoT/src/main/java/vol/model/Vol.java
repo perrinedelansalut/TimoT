@@ -14,9 +14,10 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Version;
 
-
-import org.hibernate.validator.constraints.Range;
 import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  * @author ajc
@@ -85,17 +86,21 @@ public class Vol {
 		this.compagnieAerienneVols = new ArrayList<CompagnieAerienneVol>();
 	}
 	
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name="aeroport_Arrivée_Id")
 	public Aeroport getAeroportArrivee() {
 		return aeroportArrivee;
 	}
+	
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name="aeroport_Depart_Id")
 	public Aeroport getAeroportDepart() {
 		return aeroportDepart;
 	}
 	
+	@JsonIgnore
 	@OneToMany(mappedBy="vol")
 	public List<CompagnieAerienneVol> getCompagnieAerienneVols() {
 		return compagnieAerienneVols;
@@ -116,6 +121,7 @@ public class Vol {
 		return dateDepart;
 	}
 
+	@JsonIgnore
 	@OneToMany(mappedBy="id.vol")
 	public List<Escale> getEscales() {
 		return escales;
@@ -123,12 +129,14 @@ public class Vol {
 
 	@Temporal(TemporalType.TIME)
 	@DateTimeFormat(pattern="HH:mm")
+	@JsonFormat(pattern = "HH:mm")
 	public Date getHeureArrivee() {
 		return heureArrivee;
 	}
 
 	@Temporal(TemporalType.TIME)
 	@DateTimeFormat(pattern="HH:mm")
+	@JsonFormat(pattern = "HH:mm")
 	public Date getHeureDepart() {
 		return heureDepart;
 	}
@@ -139,6 +147,7 @@ public class Vol {
 		return idVol;
 	}
 
+	@JsonIgnore
 	@OneToMany(mappedBy="vol")
 	public List<Reservation> getReservations() {
 		return reservations;
